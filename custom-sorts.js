@@ -22,15 +22,34 @@ compareFn(a, b) return value	sort order
 */
 
 function validAnagrams(s, t) {
-  // Your code here
+  return s.split("").sort().join("") === t.split("").sort().join("")
 }
 
 function reverseBaseSort(arr) {
-  // Your code here
+  return arr.sort((a,b) => {
+    if(a.toString().length !== b.toString().length) {
+      return b.toString().length - a.toString().length
+    } else {
+      return a - b;
+    }
+  })
 }
 
 function frequencySort(arr) {
-  // Your code here
+  let count = {}
+  for (let el of arr) {
+    if(!count[el]) count[el] = 0;
+    count[el]++
+  }
+  return arr.sort((a,b) => {
+    if(count[a] < count[b]) {
+      return -1;
+    } else if (count[a] > count[b]) {
+      return 1
+    } else {
+      return b - a
+    }
+  })
 }
 
 module.exports = [
