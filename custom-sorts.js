@@ -4,10 +4,8 @@ function ageSort(users) {
 
 function oddEvenSort(arr) {
   return arr.sort((a, b) => {
-    if (a % 2 !== 0 && b % 2 === 0) {
-      return -1;
-    } else if (a % 2 === 0 && b % 2 !== 0) {
-      return 1;
+    if (a % 2 !== b % 2) {
+      return (b % 2) - (a % 2)
     } else {
       return a - b;
     }
@@ -42,10 +40,8 @@ function frequencySort(arr) {
     count[el]++
   }
   return arr.sort((a,b) => {
-    if(count[a] < count[b]) {
-      return -1;
-    } else if (count[a] > count[b]) {
-      return 1
+    if (count[a] !== count[b]) {
+      return count[a] - count[b]
     } else {
       return b - a
     }
